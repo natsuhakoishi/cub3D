@@ -6,7 +6,7 @@
 /*   By: yyean-wa < yyean-wa@student.42kl.edu.my    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 16:52:17 by yyean-wa          #+#    #+#             */
-/*   Updated: 2025/02/14 01:40:53 by yyean-wa         ###   ########.fr       */
+/*   Updated: 2025/02/18 03:09:02 by yyean-wa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ void	tutup_c3d(t_c3dmlx *c3d, char *msg, int status)
 
 int	tutup_game(void)
 {
-	tutup("Thanks for Playing\n", 0);
+	tutup("\nThanks for Playing !!!\n\n", 0);
 	return (0);
 }
