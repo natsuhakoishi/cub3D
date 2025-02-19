@@ -6,7 +6,7 @@
 /*   By: yyean-wa < yyean-wa@student.42kl.edu.my    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 20:08:15 by yyean-wa          #+#    #+#             */
-/*   Updated: 2025/02/18 00:45:23 by yyean-wa         ###   ########.fr       */
+/*   Updated: 2025/02/19 22:45:14 by yyean-wa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,18 @@ static void	add_axis(t_raycast *ray)
 		ray->sidedist_x += ray->deltadist_x;
 		ray->map_x += ray->step_x;
 		if (ray->step_x == -1)
-			ray->direction = EAST;
-		else
 			ray->direction = WEST;
+		else
+			ray->direction = EAST;
 	}
 	else
 	{
 		ray->sidedist_y += ray->deltadist_y;
 		ray->map_y += ray->step_y;
 		if (ray->step_y == -1)
-			ray->direction = SOUTH;
-		else
 			ray->direction = NORTH;
+		else
+			ray->direction = SOUTH;
 	}
 }
 

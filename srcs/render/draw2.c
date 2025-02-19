@@ -6,7 +6,7 @@
 /*   By: yyean-wa < yyean-wa@student.42kl.edu.my    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/17 20:51:31 by yyean-wa          #+#    #+#             */
-/*   Updated: 2025/02/17 21:16:47 by yyean-wa         ###   ########.fr       */
+/*   Updated: 2025/02/19 23:09:23 by yyean-wa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,9 @@ static void	draw_texrgb(t_c3dmlx *c3d, t_raycast *ray, t_line *line,
 		* texture->size_line / 2;
 	line->y_texd = ((scale * texture->height) / ray->draw_height)
 		/ texture->size_line;
+	if (line->x_texd < 0 || line->x_texd >= texture->width ||
+			line->y_texd < 0 || line->y_texd >= texture->height)
+		return ;
 	c3d->mlx_img->addr[line->y * c3d->mlx_img->size_line + line-> x
 		* c3d->mlx_img->bits_per_pixel / 8] = texture->addr[line->y_texd
 		* texture->size_line + line->x_texd
