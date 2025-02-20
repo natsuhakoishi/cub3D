@@ -6,7 +6,7 @@
 /*   By: zgoh <zgoh@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 14:56:56 by yyean-wa          #+#    #+#             */
-/*   Updated: 2025/02/14 04:17:18 by zgoh             ###   ########.fr       */
+/*   Updated: 2025/02/20 03:45:30 by zgoh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	parse_symbols(t_c3dmlx *c3d, char *mapline)
 	}
 }
 
-int	parse_player(t_c3dmlx *c3d, char **map, int y, int x)
+void	parse_player(t_c3dmlx *c3d, char **map, int y, int x)
 {
 	if (map[y][x] == 'N')
 	{
@@ -49,24 +49,23 @@ int	parse_player(t_c3dmlx *c3d, char **map, int y, int x)
 		init_camera(c3d, 0.00, 0.00, 0.66);
 	}
 	else
-		return (1);
+		return ;
 	c3d->game->player->position.x = (double) x + 0.5;
 	c3d->game->player->position.y = (double) y + 0.5;
-	return (0);
 }
 
 static int	parse_space(char **map, int y, int x)
 {
 	if (map[y][x] != ' ')
 		return (0);
-	if (x < (int) ft_strlen(map[y - 1]) && map[y - 1][x] == '0')
-		tutup("Error: Map not closed (parse_space <up>\n)", 1);
-	if (x < (int) ft_strlen(map[y + 1]) && map[y - 1][x] == '0')
-		tutup("Error: Map not closed (parse_space <down>\n)", 1);
+	if (x < (int)ft_strlen(map[y - 1]) && map[y - 1][x] == '0')
+		tutup("Error: Map not closed <parse_space (up)>\n", 1);
+	if (x < (int)ft_strlen(map[y + 1]) && map[y - 1][x] == '0')
+		tutup("Error: Map not closed <parse_space (down)>\n", 1);
 	if (map[y][x - 1] == '0')
-		tutup("Error: Map not closed (parse_space <left>\n)", 1);
+		tutup("Error: Map not closed <parse_space (right)>\n", 1);
 	if (map[y][x + 1] == '0')
-		tutup("Error: Map not closed (parse_space <right>\n)", 1);
+		tutup("Error: Map not closed <parse_space (left)>\n", 1);
 	return (1);
 }
 
@@ -78,23 +77,23 @@ void	parse_borders(char **map, int y, int x)
 		&& x >= (int)ft_strlen(map[y - 1]))
 	{
 		if (map[y][x] != '1')
-			tutup("Error: Map not closed <parse_border if(1)>", 1);
+			tutup("Error: Map not closed <parse_border if(1)>\n", 1);
 	}
 	if (x < (int)ft_strlen(map[y - 1]) && map[y - 1][x] == ' ')
 	{
 		if (map[y][x] != '1')
-			tutup("Error: Map not closed <parse_border if(2)>", 1);
+			tutup("Error: Map not closed <parse_border if(2)>\n", 1);
 	}
 	if (ft_strlen(map[y]) > ft_strlen(map[y + 1])
 		&& x >= (int)ft_strlen(map[y + 1]))
 	{
 		if (map[y][x] != '1')
-			tutup("Error: Map not closed <parse_border if(3)>", 1);
+			tutup("Error: Map not closed <parse_border if(3)>\n", 1);
 	}
 	if (x < (int)ft_strlen(map[y + 1]) && map[y + 1][x] == ' ')
 	{
 		if (map[y][x] != '1')
-			tutup("Error: Map not closed <parse_border if(4)>", 1);
+			tutup("Error: Map not closed <parse_border if(4)>\n", 1);
 	}
 }
 

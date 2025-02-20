@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_parse.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yyean-wa < yyean-wa@student.42kl.edu.my    +#+  +:+       +#+        */
+/*   By: zgoh <zgoh@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 17:51:40 by yyean-wa          #+#    #+#             */
-/*   Updated: 2025/02/17 22:20:35 by yyean-wa         ###   ########.fr       */
+/*   Updated: 2025/02/20 00:52:49 by zgoh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	parse_fl(t_c3dmlx *c3d, int y, int x)
 	while (c3d->game->map[y][++x])
 	{
 		if (c3d->game->map[y][x] != '1' && c3d->game->map[y][x] != ' ')
-			tutup_c3d(c3d, "Error: Map border not closed (FL)\n", 1);
+			tutup_c3d(c3d, "Error: Map border not closed (F/L)\n", 1);
 	}
 	return (0);
 }

@@ -1,0 +1,19 @@
+NO textures/dirc/n.xpm
+SO textures/dirc/s.xpm
+WE textures/dirc/w.xpm
+EA textures/dirc/e.xpm
+
+F 128,128,128
+C 0,0,100
+
+111 111 1111111
+101 101 1000001
+101110111111001
+1000000W000e001
+111110111001111
+    101 1000001
+    111 1111111
+
+
+
+

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_c3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yyean-wa < yyean-wa@student.42kl.edu.my    +#+  +:+       +#+        */
+/*   By: zgoh <zgoh@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 16:12:09 by yyean-wa          #+#    #+#             */
-/*   Updated: 2025/02/18 02:12:27 by yyean-wa         ###   ########.fr       */
+/*   Updated: 2025/02/20 01:13:37 by zgoh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void		parse_map(t_c3dmlx *c3d);
 int			parse_fl(t_c3dmlx *c3d, int y, int x);
 void		parse_map2(t_c3dmlx *c3d, char **map, int y, int x);
 void		parse_borders(char **map, int y, int x);
-int			parse_player(t_c3dmlx *c3d, char **map, int y, int x);
+void		parse_player(t_c3dmlx *c3d, char **map, int y, int x);
 void		parse_symbols(t_c3dmlx *c3d, char *mapline);
 int			parse_line(t_c3dmlx *c3d, char **split);
 void		load_texture(t_c3dmlx *c3d, t_img *img, char *tex_path);

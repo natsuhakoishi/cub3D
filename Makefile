@@ -43,6 +43,13 @@ $(NAME): $(OBJS) $(LIBFT)
 	@cc $(CFLAGS) $(OBJS) $(LIBFT) $(MLX) $(MLX_FLAGS) -o $(NAME)
 	@echo "$(GREEN)$(NAME)$(BLUE) is ready"$(RESET)
 
+valgrind: CFLAGS := -Wall -Wextra -Werror $(INCLUDES)
+valgrind: fclean $(OBJS) $(LIBFT)
+	@chmod 777 $(MLX_PATH)/configure
+	@make -C $(MLX_PATH) > /dev/null 2>&1
+	@cc $(CFLAGS) $(OBJS) $(LIBFT) $(MLX) $(MLX_FLAGS) -o $(NAME)
+	@echo "$(GREEN)$(NAME)$(BLUE) is ready to use with Valgrind"$(RESET)
+
 $(LIBFT):
 	@echo "$(BLUE)Compiling libft..." $(RESET)
 	@make -C $(LIBFT_PATH) --no-print-directory
@@ -57,17 +64,18 @@ $(OBJ_DIR):
 	@mkdir -p $(OBJ_DIR)/render
 
 clean:
-	@make clean -C $(LIBFT_PATH)
-	@make clean -C $(MLX_PATH)
+	@make clean -C $(LIBFT_PATH) --no-print-directory
+	@echo "$(ORANGE)Remove Libft object files"$(RESET)
+	@make clean -C $(MLX_PATH) --no-print-directory
 	@$(RM) $(OBJS) $(OBJ_DIR)
 	@echo "$(ORANGE)Remove object files"$(RESET)
 
 fclean: clean
-	@make fclean -C $(LIBFT_PATH)
+	@make fclean -C $(LIBFT_PATH) --no-print-directory
 	@$(RM) $(NAME)
 	@echo "$(ORANGE)Remove $(NAME)"$(RESET)
 	@echo "$(PINK)EVERYTING CLEAR!! :P"$(RESET)
 
 re: fclean all
 
-.PHONY = all clean fclean re
+.PHONY = all clean fclean re valgrind

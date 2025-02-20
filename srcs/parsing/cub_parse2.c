@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub_parse2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yyean-wa < yyean-wa@student.42kl.edu.my    +#+  +:+       +#+        */
+/*   By: zgoh <zgoh@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 18:09:09 by yyean-wa          #+#    #+#             */
-/*   Updated: 2025/02/14 01:40:21 by yyean-wa         ###   ########.fr       */
+/*   Updated: 2025/02/20 03:17:51 by zgoh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	read_textures(t_c3dmlx *c3d, int fd)
 		{
 			free(line);
 			free_dptr(split);
-			tutup_c3d(c3d, "Error: Failure: Textures/Colors", 1);
+			tutup_c3d(c3d, "Error: Failure: Textures/Colors\n", 1);
 		}
 		textures_flag = check_textures(c3d);
 		free(line);
@@ -36,7 +36,7 @@ void	read_textures(t_c3dmlx *c3d, int fd)
 	}
 	free(line);
 	if (!textures_flag)
-		tutup_c3d(c3d, "Error: Invalid textures indentity\n", 1);
+		tutup_c3d(c3d, "Error: Invalid number of identifiers\n", 1);
 }
 
 static void	read_buffer(char **buffer, char **line, int fd)
@@ -65,7 +65,7 @@ void	read_map(t_c3dmlx *c3d, int fd)
 	if (!line)
 	{
 		close(fd);
-		tutup_c3d(c3d, "Error: Map not exist\n", 1);
+		tutup_c3d(c3d, "Error: No map contents\n", 1);
 	}
 	buffer = ft_bzero(0);
 	while (line)

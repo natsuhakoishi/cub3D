@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   scene_parse.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yyean-wa < yyean-wa@student.42kl.edu.my    +#+  +:+       +#+        */
+/*   By: zgoh <zgoh@student.42kl.edu.my>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:57:25 by yyean-wa          #+#    #+#             */
-/*   Updated: 2025/02/18 02:14:59 by yyean-wa         ###   ########.fr       */
+/*   Updated: 2025/02/20 04:01:27 by zgoh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ int	process_colors(t_c3dmlx *c3d, char *cf, char **split)
 	g = ft_atoi(colors[1]);
 	b = ft_atoi(colors[2]);
 	free_dptr(colors);
+	if (r < 0 || g < 0 || b < 0 || r > 255 || g > 255 || b > 255)
+		tutup_c3d(c3d, "Error: RGB value exceed range\n", 1);
 	if (!ft_strcmp(cf, "F"))
 		c3d->floor_rgb = (1 << 24 | r << 16 | g << 8 | b);
 	else if (!ft_strcmp(cf, "C"))
