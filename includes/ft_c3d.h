@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_c3d.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zgoh <zgoh@student.42kl.edu.my>            +#+  +:+       +#+        */
+/*   By: yyean-wa < yyean-wa@student.42kl.edu.my    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 16:12:09 by yyean-wa          #+#    #+#             */
-/*   Updated: 2025/02/20 01:13:37 by zgoh             ###   ########.fr       */
+/*   Updated: 2025/02/22 03:45:51 by yyean-wa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ int			parse_line(t_c3dmlx *c3d, char **split);
 void		load_texture(t_c3dmlx *c3d, t_img *img, char *tex_path);
 int			process_colors(t_c3dmlx *c3d, char *cf, char **split);
 int			check_textures(t_c3dmlx *c3d);
+void		parse_colors(t_c3dmlx *c3d, char **split);
+void		check_arr_size(char **str);
 
 //controls
 

@@ -19,7 +19,7 @@ SRC_FILES = \
 			controls/keypress controls/keyrelease controls/event_exec \
 			init/init init/init2 \
 			parsing/cub_parse parsing/cub_parse2 parsing/scene_parse \
-			parsing/map_parse parsing/map_parse2 \
+			parsing/map_parse parsing/map_parse2 parsing/scene_parse2\
 			player/player player/move player/turn\
 			utils/free utils/get_next_line utils/quit_exit \
 			render/dda render/raycasting render/render \

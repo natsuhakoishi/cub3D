@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub_parse2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zgoh <zgoh@student.42kl.edu.my>            +#+  +:+       +#+        */
+/*   By: yyean-wa < yyean-wa@student.42kl.edu.my    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 18:09:09 by yyean-wa          #+#    #+#             */
-/*   Updated: 2025/02/20 03:17:51 by zgoh             ###   ########.fr       */
+/*   Updated: 2025/02/22 03:45:07 by yyean-wa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	read_textures(t_c3dmlx *c3d, int fd)
 	while (!textures_flag && line)
 	{
 		split = ft_split(line, ' ');
+		check_arr_size(split);
 		if (parse_line(c3d, split))
 		{
 			free(line);

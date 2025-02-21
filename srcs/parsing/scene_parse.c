@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   scene_parse.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zgoh <zgoh@student.42kl.edu.my>            +#+  +:+       +#+        */
+/*   By: yyean-wa < yyean-wa@student.42kl.edu.my    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 14:57:25 by yyean-wa          #+#    #+#             */
-/*   Updated: 2025/02/20 04:01:27 by zgoh             ###   ########.fr       */
+/*   Updated: 2025/02/22 03:42:22 by yyean-wa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	process_colors(t_c3dmlx *c3d, char *cf, char **split)
 	int		g;
 	int		b;
 
+	parse_colors(c3d, split);
 	colors = ft_split(split[1], ',');
 	r = ft_atoi(colors[0]);
 	g = ft_atoi(colors[1]);
